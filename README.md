@@ -34,8 +34,9 @@ Welcome to a fresh spin on the timeless classic, Tetris! This version introduces
 ## 📸 Sneak Peek
 ![bomb in frame](https://github.com/user-attachments/assets/a432dcdb-7b10-4efe-abbc-484f1bf33546)
 ```
-```
 _Witness the Bomb Block in action!_
+```
+
 
 ## 💡 What’s Next?
 - Power-ups and more quirky blocks
