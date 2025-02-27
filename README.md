@@ -1,4 +1,4 @@
-Here’s an improved version of your README for your GitHub repository. I’ve refined the structure, enhanced clarity, added some flair, and made it more engaging while keeping the core content intact. I’ve also ensured it’s concise yet informative, with a professional yet fun tone suitable for GitHub.
+
 
 ---
 
@@ -32,7 +32,7 @@ Welcome to a fresh spin on the timeless classic, Tetris! This version introduces
    _[Specify here: e.g., “Open `index.html` in a browser” or “Run `python main.py`” depending on your setup.]_
 
 ## 📸 Sneak Peek
-![Gameplay Preview](![bomb in frame](https://github.com/user-attachments/assets/a432dcdb-7b10-4efe-abbc-484f1bf33546))  
+![bomb in frame](https://github.com/user-attachments/assets/a432dcdb-7b10-4efe-abbc-484f1bf33546)
 _Witness the Bomb Block in action!_
 
 ## 💡 What’s Next?
