@@ -178,7 +178,7 @@ function animateLineClear(rows) {
             isClearingLines = false;
             renderGame();
             
-            // @@@@@@@@@@@@@@@@@  line clear effect with GSAP
+            // Enhanced line clear effect with GSAP
             gsap.to("#tetris", { 
                 className: "+=glow-pulse", 
                 duration: 0.5, 
@@ -246,7 +246,7 @@ function updateScore(lines) {
     score += points[lines] || 100;
     scoreboard.innerHTML = `Score: ${score} | Lines: ${linesCleared}`;
     
-    // @@@@@@@@@@@@@@@@@  score update animation
+    // Enhanced score update animation
     gsap.fromTo("#score", 
         { scale: 1.2, color: "#ffcc00" }, 
         { scale: 1, color: "#ffffff", duration: 0.5, ease: "elastic.out(1.2, 0.5)" }
@@ -254,8 +254,8 @@ function updateScore(lines) {
 }
 
 function moveDown() {
+    if (!PieceObj || isClearingLines || isProcessingInput || bombExploding) return;
     
-    if (!PieceObj || gameOver || isClearingLines || isProcessingInput || bombExploding) return;
     isProcessingInput = true;
     
     if (!collision(PieceObj.x, PieceObj.y + 1)) {
@@ -650,7 +650,7 @@ function gameLoop(timestamp) {
 function gameOverSequence() {
     gameOver = true;
     
-    // @@@@@@@@@@@@@@@@@  game over animation
+    // Enhanced game over animation
     gsap.to(".game-over-overlay", {
         opacity: 1,
         duration: 0.8,
@@ -681,42 +681,7 @@ function gameOverSequence() {
     });
 }
 
-document.addEventListener("keydown", function(e) {
-    // If game is over, only allow the "r" key to restart
-    if (gameOver) {
-      if (e.key === "r") {
-        startGame();
-      }
-      return; // Ignore all other keys when game over
-    }
-    
-    // If the game is not over, process input normally
-    if (isProcessingInput) return;
-    
-    switch (e.key) {
-      case "ArrowDown":
-        e.preventDefault();
-        moveDown();
-        dropCounter = 0;
-        break;
-      case "ArrowLeft":
-        e.preventDefault();
-        moveLeft();
-        break;
-      case "ArrowRight":
-        e.preventDefault();
-        moveRight();
-        break;
-      case "ArrowUp":
-        e.preventDefault();
-        rotate();
-        break;
-      case " ":
-        e.preventDefault();
-        hardDropPiece();
-        break;
-    }
-  });
+
 
 function startGame() {
     grid = generateGrid();
