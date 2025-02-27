@@ -518,7 +518,7 @@ function rotate() {
 }
 
 function hardDropPiece() {
-    if (!PieceObj || gameOver || isClearingLines || isProcessingInput || bombExploding) return;
+    if (!PieceObj || gameOver || isClearingLines || isProcessingInput ) return;
     
     isProcessingInput = true;
     
@@ -728,7 +728,7 @@ document.addEventListener("keydown", function(e) {
     switch(e.key) {
         case "ArrowDown":
             e.preventDefault();
-            moveDown();
+           if(!gameOver) moveDown();
             dropCounter = 0;
             break;
         case "ArrowLeft":
