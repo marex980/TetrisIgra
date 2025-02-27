@@ -1,4 +1,5 @@
 
+![teris home screen](https://github.com/user-attachments/assets/f5e39f1e-02d8-4536-8c16-683e7c495873)
 
 ---
 
@@ -29,7 +30,7 @@ Welcome to a fresh spin on the timeless classic, Tetris! This version introduces
    cd tetris-bomb
    ```
 3. Launch the game:  
-   _[Specify here: e.g., “Open `index.html` in a browser” or “Run `python main.py`” depending on your setup.]_
+   _[Specify here: e.g., “Open `index.html` in a browser”]_
 
 ## 📸 Sneak Peek
 ![bomb in frame](https://github.com/user-attachments/assets/a432dcdb-7b10-4efe-abbc-484f1bf33546)
@@ -60,4 +61,4 @@ Got ideas to level up the game? Fork the repo, tinker away, and send a pull requ
 4. **Structure:** Tightened section titles (“Overview” instead of “About the Game”) and added subtle calls-to-action (“Join the Fun”).
 5. **Professional Polish:** Linked the MIT License and refined wording for a GitHub audience.
 
-Feel free to tweak the placeholder parts (like the run command or screenshot path) to match your project! What do you think—any specific vibe or details you’d like to emphasize further?
+
