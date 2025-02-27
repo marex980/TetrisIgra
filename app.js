@@ -178,7 +178,7 @@ function animateLineClear(rows) {
             isClearingLines = false;
             renderGame();
             
-            // Enhanced line clear effect with GSAP
+            // @@@@@@@@@@@@@@@@@  line clear effect with GSAP
             gsap.to("#tetris", { 
                 className: "+=glow-pulse", 
                 duration: 0.5, 
@@ -246,7 +246,7 @@ function updateScore(lines) {
     score += points[lines] || 100;
     scoreboard.innerHTML = `Score: ${score} | Lines: ${linesCleared}`;
     
-    // Enhanced score update animation
+    // @@@@@@@@@@@@@@@@@  score update animation
     gsap.fromTo("#score", 
         { scale: 1.2, color: "#ffcc00" }, 
         { scale: 1, color: "#ffffff", duration: 0.5, ease: "elastic.out(1.2, 0.5)" }
@@ -650,7 +650,7 @@ function gameLoop(timestamp) {
 function gameOverSequence() {
     gameOver = true;
     
-    // Enhanced game over animation
+    // @@@@@@@@@@@@@@@@@  game over animation
     gsap.to(".game-over-overlay", {
         opacity: 1,
         duration: 0.8,
