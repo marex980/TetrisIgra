@@ -43,9 +43,7 @@ Welcome to a fresh spin on the timeless classic, Tetris! This version introduces
    _[Specify here: e.g., “Open `index.html` in a browser”]_
 
 ## 📸 Sneak Peek
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/a432dcdb-7b10-4efe-abbc-484f1bf33546" alt="Bomb in action">
-</p>
+
 <pre><code>_Witness the Bomb Block in action!_</code></pre>
 
 ## 💡 What’s Next?
