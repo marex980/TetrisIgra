@@ -41,7 +41,7 @@ const GLOW_COLORS = [
 const ROWS = 20;
 const COLS = 10;
 const DROP_SPEED = 500;
-const BOMB_CHANCE = 0.1; // 10% chance to spawn a bomb
+const BOMB_CHANCE = 0.05; // 10% chance to spawn a bomb
 
 let grid = generateGrid();
 let PieceObj = null;
@@ -161,9 +161,15 @@ function animateLineClear(rows) {
     isClearingLines = true;
     let animationProgress = 0;
     
+    // Freeze current piece into grid before clearing lines
+    if (PieceObj) {
+        freezePiece();
+        PieceObj = null;
+    }
+    
     function animate() {
         ctx.clearRect(0, 0, COLS, ROWS);
-        renderGameWithoutPiece(); // Render grid without current piece
+        renderGameWithoutPiece();
         
         rows.forEach(row => {
             ctx.fillStyle = `rgba(255, 255, 255, ${1 - animationProgress})`;
@@ -176,27 +182,26 @@ function animateLineClear(rows) {
         } else {
             clearLines(rows);
             isClearingLines = false;
+            
+            // Create new piece after line clear
+            PieceObj = randomPieceObject();
             renderGame();
             
-            // Enhanced line clear effect with GSAP
-            gsap.to("#tetris", { 
-                className: "+=glow-pulse", 
-                duration: 0.5, 
-                yoyo: true, 
-                repeat: 1,
-                onComplete: () => canvas.classList.remove("glow-pulse")
-            });
+            // Simple flash effect
+            canvas.style.opacity = '0.8';
+            setTimeout(() => {
+                canvas.style.opacity = '1';
+            }, 100);
             
-            // Add camera shake effect
-            gsap.to("main", {
-                x: () => Math.random() * 8 - 4,
-                y: () => Math.random() * 8 - 4,
-                duration: 0.1,
-                repeat: 5,
-                yoyo: true,
-                ease: "none",
-                onComplete: () => gsap.set("main", {x: 0, y: 0})
-            });
+            // Simple screen shake
+            const main = document.querySelector('main');
+            main.style.transform = 'translateX(4px)';
+            setTimeout(() => {
+                main.style.transform = 'translateX(-4px)';
+                setTimeout(() => {
+                    main.style.transform = 'translateX(0)';
+                }, 50);
+            }, 50);
         }
     }
     requestAnimationFrame(animate);
@@ -235,7 +240,7 @@ function checkGrid() {
 }
 
 function clearLines(rows) {
-    rows.sort((a, b) => b - a).forEach(row => {
+    rows.forEach(row => {
         grid.splice(row, 1);
         grid.unshift(Array(COLS).fill(0));
     });
@@ -393,6 +398,11 @@ function animateExplosion(centerX, centerY, callback) {
         if (radius <= maxRadius) {
             requestAnimationFrame(animateFrame);
         } else {
+            // Reset game state before callback
+            bombExploding = false;
+            isProcessingInput = false;
+            dropCounter = 0;
+            
             // Explosion finished
             if (callback) callback();
         }
