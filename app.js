@@ -64,7 +64,7 @@ gameOverOverlay.innerHTML = `
     <h3>Game Over!</h3>
     <p>Press R to restart</p>
 `;
-document.querySelector('main').appendChild(gameOverOverlay);
+document.querySelector('body').appendChild(gameOverOverlay);
 
 function generateGrid() {
     return Array(ROWS).fill().map(() => Array(COLS).fill(0));
